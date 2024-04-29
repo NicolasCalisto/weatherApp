@@ -1,0 +1,10 @@
+.city {
+    display: flex;
+    padding: 0.7em;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.city:hover {
+    color: #fff;
+}

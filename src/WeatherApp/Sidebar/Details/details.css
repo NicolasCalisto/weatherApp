@@ -1,0 +1,13 @@
+.weatherDetails h4 {
+    margin: 2em 0;
+    font-size: 1.2em;
+  }
+  
+  .weatherDetails li {
+    display: flex;
+    padding: 0.7em;
+    justify-content: space-between;
+    align-items: center;
+    color: #ccc;
+  }
+  
