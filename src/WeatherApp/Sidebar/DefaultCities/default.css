@@ -1,6 +1,9 @@
+.cities{
+    font-size: 0.5em;
+}
 .city {
     display: flex;
-    padding: 0.7em;
+    padding: 0.6em;
     cursor: pointer;
     color: #ccc;
 }

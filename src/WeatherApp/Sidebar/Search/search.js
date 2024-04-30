@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './search.css';
 
-function SearchComponent() {
+function SearchComponent({ onSearch }) {
   const [cityName, setCityName] = useState('');
 
   const search = async (e) => {
@@ -16,7 +16,7 @@ function SearchComponent() {
             units: 'metric'
           }
         });
-        console.log(response.data);
+        onSearch(response.data);
       } catch (error) {
         console.error('Erro ao obter dados do clima:', error);
       }
