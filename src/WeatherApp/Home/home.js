@@ -8,6 +8,10 @@ import './home.css';
 function WeatherComponent() {
     const [weatherData, setWeatherData] = useState(null);
 
+    useEffect(() => {
+        searchWeather('Recife');
+    }, []);
+
     const searchWeather = async (cityName) => {
         try {
             const response = await axios.get('https://api.openweathermap.org/data/2.5/weather', {
@@ -23,12 +27,8 @@ function WeatherComponent() {
         }
     };
 
-    useEffect(() => {
-        searchWeather('Recife');
-    }, []);
-
-    const handleSearch = async (cityName) => {
-        await searchWeather(cityName);
+    const handleSearch = (cityName) => {
+        searchWeather(cityName);
     };
 
     return (

@@ -4,12 +4,12 @@ import DefaultCitiesComponent from './DefaultCities/default';
 import WeatherDetails from './Details/details';
 import './sidebar.css';
 
-function SidebarComponent() {
+function SidebarComponent({ onSearch}) {
     return (
         <div className="sidebar">
             {/* search */}
             <div className="search">
-                <SearchComponent />
+                <SearchComponent onSearch={onSearch}/>
             </div>
             {/* default cities */}
             <div className="sitting">
