@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './default.css';
-function DefaultCitiesComponent() {
+function DefaultCitiesComponent({ onCityClick }) {
+    const cities = ['Recife','Olinda', 'Caruaru', 'Jaboatão', 'Paulista'];
+
     return (
-        <ul className="cities">
-            <li className="city">Recife</li>
-            <li className="city">Olinda</li>
-            <li className="city">Caruaru</li>
-            <li className="city">Jaboatão</li>
-            <li className="city">Paulista</li>
+        <ul className='cities'>
+            {cities.map((city, index) => (
+                <li key={index} className='city' onClick={() => onCityClick(city)}>
+                    {city}
+                </li>
+            ))}
         </ul>
     );
 }

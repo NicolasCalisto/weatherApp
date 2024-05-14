@@ -1,10 +1,16 @@
 import React from 'react';
 import './details.css';
 
-function WeatherDetails() {
-  const cloudy = '80'; // Dados temporários, substitua com dados reais
-  const humidity = '65'; // Dados temporários, substitua com dados reais
-  const wind = '2'; // Dados temporários, substitua com dados reais
+function WeatherDetails({ weatherData }) {
+  if (!weatherData) {
+    return null;
+  }
+  const  { main, wind, clouds} = weatherData;
+  const cloudy = parseFloat(clouds.all);
+  const humidity = parseFloat(main.humidity);
+  const windVel = parseFloat(wind.speed);
+
+  console.log("teste linguagem detalhes", weatherData)
 
   return (
     <ul className="weatherDetails">
@@ -19,7 +25,7 @@ function WeatherDetails() {
       </li>
       <li>
         <span>Vento</span>
-        <span className="wind">{wind} km/h</span>
+        <span className="wind">{windVel} km/h</span>
       </li>
     </ul>
   );

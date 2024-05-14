@@ -4,7 +4,11 @@ import DefaultCitiesComponent from './DefaultCities/default';
 import WeatherDetails from './Details/details';
 import './sidebar.css';
 
-function SidebarComponent({ onSearch}) {
+function SidebarComponent({ onSearch, weatherData }) {
+    const handleClickCity = (cityName) => {
+        onSearch(cityName);
+    };
+
     return (
         <div className="sidebar">
             {/* search */}
@@ -13,11 +17,11 @@ function SidebarComponent({ onSearch}) {
             </div>
             {/* default cities */}
             <div className="sitting">
-                <DefaultCitiesComponent />
+                <DefaultCitiesComponent onCityClick={handleClickCity}/>
             </div>
             {/* weather details */}
             <div className="sitting">
-                <WeatherDetails />
+                <WeatherDetails weatherData={weatherData}/>
             </div>
         </div>
     );

@@ -18,7 +18,8 @@ function WeatherComponent() {
                 params: {
                     q: cityName,
                     appid: 'c7d11b0ba55bda8b3a6732cea2cd48d7',
-                    units: 'metric'
+                    units: 'metric',
+                    lang: 'pt_br'
                 }
             });
             setWeatherData(response.data);
@@ -35,11 +36,11 @@ function WeatherComponent() {
         <div className="backgroundContainer">
             <div className="home">
                 <div className="currentData">
-                    <CurrentWeatherComponent />
+                    <CurrentWeatherComponent weatherData={weatherData}/>
                     <DetailsComponent weatherData={weatherData} />
                 </div>
             </div>
-            <SidebarComponent onSearch={handleSearch} />
+            <SidebarComponent onSearch={handleSearch} weatherData={weatherData} />
         </div>
     );
 }
