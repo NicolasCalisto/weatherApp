@@ -1,38 +1,29 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import './search.css';
+import searchIcon from './../../utils/img/searchIcon2.png';
 
-function SearchComponent() {
+function SearchComponent({ onSearch }) {
   const [cityName, setCityName] = useState('');
 
-  const search = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (cityName.trim()) {
-      try {
-        const response = await axios.get('https://api.openweathermap.org/data/2.5/weather', {
-          params: {
-            q: cityName,
-            appid: 'c7d11b0ba55bda8b3a6732cea2cd48d7',
-            units: 'metric'
-          }
-        });
-        console.log(response.data);
-      } catch (error) {
-        console.error('Erro ao obter dados do clima:', error);
-      }
+      onSearch(cityName);
     }
   };
 
   return (
-    <form onSubmit={search} className="search">
+    <form onSubmit={handleSubmit} className="search">
       <input
         type="text"
         name="cityName"
-        placeholder="Digite o nome da cidade"
+        placeholder="Procure a cidade"
         value={cityName}
         onChange={(e) => setCityName(e.target.value)}
       />
-      <button type="submit" className="submitButton">Pesquisar</button>
+      <button type="submit" className="submitButton">
+        <img src={searchIcon} alt="icone" className="icone" width="15" height="15" />
+      </button>
     </form>
   );
 }

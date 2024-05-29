@@ -1,16 +1,22 @@
 import React from 'react';
 import './details.css';
 
-function DetailsComponent() {
-    const temperature = 16;
-    const city = 'Recife';
-    const time = '18:36';
-    const date = 'Terça, 23 de Agosto';
+function DetailsComponent({ weatherData }) {
+    if (!weatherData) {
+        return null; 
+    }
+
+    const { main, weather, sys } = weatherData;
+    const temperature = parseFloat(main.temp).toFixed(0);
+    console.log("temp", temperature.toString)
+    const city = weatherData.name;
+    const time = new Date().toLocaleTimeString();
+    const date = new Date().toLocaleDateString();
 
     return (
         <div className="details">
             <div>
-                <h1 className="temperature">{temperature} °C</h1>
+                <h1 className="temperature">{temperature}°C</h1>
             </div>
             <div className="currentCity">
                 <h1 className="city">{city}</h1>
@@ -19,6 +25,7 @@ function DetailsComponent() {
                     <span className="date">{date}</span>
                 </small>
             </div>
+    
         </div>
     );
 }
