@@ -1,14 +1,14 @@
 ## Describe your changes
 
-- Change 1
-- Change 2
+- `Change 1`
+- `Change 2`
 
-`(Descreva o que foi feito nesse PR.)`
+`Descreva o que foi feito nesse PR`
 
 ## Issue ticket number and link:
 - DEV-XXXXX
 
-`(Se a tarefa está relacionada a um board, por favor adicione o link aqui.)`
+`Se a tarefa está relacionada a um board, por favor adicione o link aqui`
 
 ## Tipo de mudança:
 - [ ] Bug fix (correção de bug)
@@ -22,6 +22,4 @@
 
 ## Additional comments:
 
-`(Comentários adicionais aqui)`
-
-.
+`Comentários adicionais aqui`
